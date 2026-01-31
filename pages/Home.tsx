@@ -95,7 +95,7 @@ const DepartmentCarousel: React.FC = () => {
 
   return (
       <div 
-        className="relative overflow-hidden py-16"
+        className="relative overflow-hidden"
       >
       {/* Gradient overlays for fade effect */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050b14] to-transparent z-10 pointer-events-none" />

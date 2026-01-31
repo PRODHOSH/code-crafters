@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Domains from './pages/Domains';
 import Events from './pages/Events';
+import EventDetail from './pages/EventDetail';
 import Council from './pages/Council';
 import Join from './pages/Join';
 import Contact from './pages/Contact';
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/domains" element={<Domains />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventDetail />} />
             <Route path="/council" element={<Council />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/join" element={<Join />} />

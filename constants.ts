@@ -51,7 +51,7 @@ export const EVENTS: Event[] = [
     title: 'Google Gen AI Hackathon – Team Building & Mentorship',
     date: 'September 5-10, 2024',
     description: 'Participants were carefully selected based on their interest and enthusiasm for generative AI.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop',
     activities: 'Team formation exercises, guided mentorship on GenAI use cases, and ideation sessions to shape project ideas.',
     outcome: 'Participants received continuous guidance throughout the hackathon, gaining hands-on exposure to generative AI tools and concepts. The initiative fostered collaborative learning and practical application of AI in real-world scenarios.',
   },
@@ -60,7 +60,7 @@ export const EVENTS: Event[] = [
     title: 'Guest Speaker Session - Bridging the Gap Between Academics and Industry (AI/ML)',
     date: 'September 29, 2024',
     description: 'Industry expert session on bridging academics and AI/ML industry practices.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop',
     guests: [
       {
         name: 'Mr. Atul Yadav',
@@ -75,7 +75,7 @@ export const EVENTS: Event[] = [
     title: 'DSATHON – by Codecrafters x Corbett',
     date: 'November 7 - December 3, 2024',
     description: 'Collaborative event focused on data structures, algorithms, and real-world problem-solving.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
     highlights: 'Comprehensive DSA competition fostering algorithmic thinking and problem-solving skills.',
     outcome: 'Successfully enhanced participants\' understanding of data structures and algorithms through practical challenges.',
   },
@@ -84,7 +84,7 @@ export const EVENTS: Event[] = [
     title: 'Guest Speaker Session - Introduction to Data Analytics',
     date: 'January 19, 2025',
     description: 'Comprehensive introduction to data analytics with industry expert.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
     guests: [
       {
         name: 'Ms. Shakra Shamim',
@@ -99,7 +99,7 @@ export const EVENTS: Event[] = [
     title: 'GitHub Masterclass Session',
     date: 'April 6, 2025',
     description: 'Hands-on session covering Git basics, version control, and open-source collaboration.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=600&fit=crop',
     activities: 'Cheat sheets, reference materials, and live demos were shared with participants.',
     outcome: 'Increased proficiency in version control tools and confidence in contributing to collaborative coding projects.',
   },
@@ -108,7 +108,7 @@ export const EVENTS: Event[] = [
     title: 'Inter House Codewars',
     date: 'May 2-10, 2025',
     description: 'The first-ever competitive coding event among the 12 houses of the IITM BS program.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
     registrations: '400+',
     guests: [
       {
@@ -124,7 +124,7 @@ export const EVENTS: Event[] = [
     title: 'CyberSprint (In collaboration with Nilgiri and Kanha houses)',
     date: 'June 20-30, 2025',
     description: 'Comprehensive 10-day cybersecurity learning series covering core cybersecurity concepts, ethical hacking, secure AI systems, web vulnerabilities, and CTF training.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop',
     registrations: '1100+',
     activities: 'Five carefully curated sessions featuring real-world tools and techniques such as OSINT, Burp Suite, SQL Injection, and XSS.',
     guests: [
@@ -149,7 +149,7 @@ export const EVENTS: Event[] = [
     title: 'Codeveda (with club Garuda, Manipal University, Jaipur)',
     date: 'July 25-27, 2025',
     description: 'CODEVEDA\'25 – Code for Dharma, Build for Impact. A national-level online hackathon blending Vedic wisdom with modern technological innovation.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&h=600&fit=crop',
     activities: 'Three-day hackathon featuring a structured three-round format, guiding participants from ideation to real-time prototyping.',
     guests: [
       {
@@ -172,7 +172,7 @@ export const EVENTS: Event[] = [
     title: 'Algowars (Saavan)',
     date: 'September 19-21, 2025',
     description: 'Competitive programming event designed to test participants\' proficiency in Data Structures and Algorithms through a two-round format.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
     registrations: '648 (highest for any technical event in Saavan\'25)',
     activities: 'Hosted on HackerRank with automated judging and strict online proctoring.',
     outcome: 'Successfully fostered a strong competitive coding culture and witnessed enthusiastic participation from the student community.',
@@ -182,7 +182,7 @@ export const EVENTS: Event[] = [
     title: 'AI Genesis (With Nilgiri, Nallamala and Sunderbans houses)',
     date: 'September 19-21, 2025',
     description: 'Three-day Agentic AI learning series introducing participants to the fundamentals of AI agents, hands-on agentic framework development, and career pathways in Agentic AI.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
     activities: 'Designed for learners ranging from beginners to advanced levels, fostering technical curiosity, practical understanding, and future-ready thinking.',
     guests: [
       {
@@ -206,7 +206,7 @@ export const EVENTS: Event[] = [
     title: 'DSATHON 2.0',
     date: 'November 2, 2025',
     description: 'Fast-paced competitive programming event designed to test participants\' problem-solving skills and core understanding of Data Structures and Algorithms.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?w=800&h=600&fit=crop',
     activities: 'Conducted on GeeksforGeeks. 90-minute contest emphasizing pure logic and time efficiency, with no external assistance.',
     outcome: 'Enthusiastic participation from IITM BS learners, fostering a high-energy competitive environment and reinforcing strong DSA fundamentals through leaderboard-based evaluation.',
   },
@@ -215,7 +215,7 @@ export const EVENTS: Event[] = [
     title: 'CyberCTF (Margazhi)',
     date: 'December 2025',
     description: 'Four-day solo cybersecurity competition featuring hands-on workshop and two 24-hour CTF rounds.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
     registrations: '550+',
     activities: 'Workshop led by industry expert introducing core cybersecurity concepts and CTF methodologies. Competition progressed from beginner-to-intermediate challenges to Hard and Insane difficulty levels across Web Security, OSINT, and Cryptography.',
     guests: [
@@ -232,7 +232,7 @@ export const EVENTS: Event[] = [
     title: 'Interhouse Tech Dominion',
     date: 'January 2026',
     description: 'Flagship inter-house technical hackathon designed to assess logical reasoning, coding proficiency, teamwork, and innovation.',
-    image: '/images/codecrafters_logo.jpg',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop',
     activities: 'Structured three-round competitive format: expert-led orientation session, elimination round, proctored core coding round, and live grand finale featuring team pitches and judge interaction.',
     guests: [
       {

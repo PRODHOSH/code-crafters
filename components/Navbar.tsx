@@ -31,22 +31,24 @@ const Navbar: React.FC = () => {
         scrolled ? 'bg-primary/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
-             <Code2 size={24} />
-          </div>
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+          <img 
+            src="/images/codecrafters_logo.jpg" 
+            alt="CodeCrafters Logo" 
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover transform group-hover:scale-110 transition-transform shadow-lg border-2 border-orange-500/30"
+          />
           <div className="flex flex-col">
-            <span className="font-heading font-bold text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors">
+            <span className="font-heading font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors">
               CodeCrafters
             </span>
-            <span className="text-[10px] text-gray-400 uppercase tracking-widest">IITM BS Degree</span>
+            <span className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest hidden xs:block">IITM BS Degree</span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -66,7 +68,7 @@ const Navbar: React.FC = () => {
           ))}
           <Link
             to="/join"
-            className="px-5 py-2 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold text-sm hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all transform hover:-translate-y-0.5"
+            className="px-4 xl:px-5 py-2 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold text-sm hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all transform hover:-translate-y-0.5"
           >
             Join Us
           </Link>
@@ -74,10 +76,10 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="lg:hidden text-white z-50"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -88,7 +90,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
@@ -96,9 +98,9 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium ${
+                  className={`text-base sm:text-lg font-medium py-2 ${
                     location.pathname === link.path ? 'text-orange-500' : 'text-gray-300'
-                  }`}
+                  } hover:text-orange-400 transition-colors`}
                 >
                   {link.name}
                 </Link>
@@ -106,7 +108,7 @@ const Navbar: React.FC = () => {
               <Link
                 to="/join"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 text-center py-3 rounded-lg bg-orange-600 text-white font-bold"
+                className="mt-2 text-center py-3 rounded-lg bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold hover:shadow-lg transition-all"
               >
                 Join Us
               </Link>

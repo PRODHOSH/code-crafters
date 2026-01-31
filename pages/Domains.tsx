@@ -207,18 +207,18 @@ const Domains: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
-    <div className="pt-24 min-h-screen px-6 pb-20">
+    <div className="pt-20 sm:pt-24 min-h-screen px-4 sm:px-6 pb-16 sm:pb-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">Explore Our <span className="text-orange-500">Domains</span></h1>
-          <p className="text-gray-400">Find your niche. Master your craft.</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4">Explore Our <span className="text-orange-500">Domains</span></h1>
+          <p className="text-gray-400 text-sm sm:text-base">Find your niche. Master your craft.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {DOMAINS.map((domain) => {
             const IconComponent = (Icons as any)[domain.icon] || Icons.Code;
             

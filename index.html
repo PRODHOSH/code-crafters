@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="description" content="CodeCrafters - IIT Madras BS Degree's Premier Tech Club. Engineering the Future, Architecting the Unknown." />
+    <meta name="theme-color" content="#f97316" />
     <title>CodeCrafters | IITM BS Degree</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -24,6 +26,9 @@
             animation: {
               'spin-slow': 'spin 20s linear infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            screens: {
+              'xs': '475px',
             }
           }
         }
@@ -48,6 +53,30 @@
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #f97316;
+      }
+      /* Touch optimization */
+      * {
+        -webkit-tap-highlight-color: rgba(249, 115, 22, 0.2);
+      }
+      /* Prevent text size adjustment on mobile */
+      html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      /* Custom modal scrollbar */
+      .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+      }
+      .scrollbar-thin::-webkit-scrollbar-track {
+        background: #1e293b;
+        border-radius: 10px;
+      }
+      .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: #f97316;
+        border-radius: 10px;
+      }
+      .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background: #ea580c;
       }
     </style>
   <script type="importmap">

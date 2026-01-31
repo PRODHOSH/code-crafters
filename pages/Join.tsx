@@ -26,7 +26,7 @@ const Join: React.FC = () => {
 
   if (status === 'success') {
     return (
-      <div className="pt-32 min-h-screen px-6 flex flex-col items-center justify-center text-center">
+      <div className="pt-24 sm:pt-32 min-h-screen px-4 sm:px-6 flex flex-col items-center justify-center text-center">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -49,7 +49,7 @@ const Join: React.FC = () => {
   }
 
   return (
-    <div className="pt-32 min-h-screen px-6 pb-20 flex items-center justify-center">
+    <div className="pt-24 sm:pt-32 min-h-screen px-4 sm:px-6 pb-16 sm:pb-20 flex items-center justify-center">
       <div className="w-full max-w-xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

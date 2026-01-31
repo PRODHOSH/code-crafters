@@ -13,6 +13,14 @@ export interface Event {
   description: string;
   image: string;
   outcome: string;
+  activities?: string;
+  guests?: Array<{
+    name: string;
+    background: string;
+  }>;
+  youtubeLink?: string;
+  registrations?: string;
+  highlights?: string;
 }
 
 export interface CouncilMember {

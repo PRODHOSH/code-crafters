@@ -1,8 +1,254 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Terminal, Cpu, Users, Calendar, Linkedin, Github } from 'lucide-react';
+import { ArrowRight, Terminal, Cpu, Users, Calendar, Linkedin, Github, Shield, Code2, Video, Megaphone, Settings, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { EVENTS, COUNCIL } from '../constants';
+
+const departments = [
+  {
+    id: 1,
+    name: 'WebOps, Coding & Cybersecurity',
+    description: 'Building robust systems, secure applications, and cutting-edge solutions',
+    icon: Code2,
+    iconColor: 'text-blue-400',
+    iconHoverColor: 'group-hover:text-blue-300',
+    titleHoverColor: 'group-hover:text-blue-400',
+    gradient: 'from-blue-500 to-cyan-500',
+    borderColor: 'border-blue-500/30',
+    bgGradient: 'from-blue-600/20 via-cyan-500/20 to-blue-800/20'
+  },
+  {
+    id: 2,
+    name: 'Multimedia',
+    description: 'Creating stunning visuals, engaging content, and immersive experiences',
+    icon: Video,
+    iconColor: 'text-purple-400',
+    iconHoverColor: 'group-hover:text-purple-300',
+    titleHoverColor: 'group-hover:text-purple-400',
+    gradient: 'from-purple-500 to-pink-500',
+    borderColor: 'border-purple-500/30',
+    bgGradient: 'from-purple-600/20 via-pink-500/20 to-purple-800/20'
+  },
+  {
+    id: 3,
+    name: 'PR, Outreach & Sponsorship',
+    description: 'Building connections, partnerships, and amplifying our impact',
+    icon: Megaphone,
+    iconColor: 'text-green-400',
+    iconHoverColor: 'group-hover:text-green-300',
+    titleHoverColor: 'group-hover:text-green-400',
+    gradient: 'from-green-500 to-emerald-500',
+    borderColor: 'border-green-500/30',
+    bgGradient: 'from-green-600/20 via-emerald-500/20 to-green-800/20'
+  },
+  {
+    id: 4,
+    name: 'Core',
+    description: 'The foundation that drives our vision and coordinates our mission',
+    icon: Settings,
+    iconColor: 'text-orange-400',
+    iconHoverColor: 'group-hover:text-orange-300',
+    titleHoverColor: 'group-hover:text-orange-400',
+    gradient: 'from-orange-500 to-red-500',
+    borderColor: 'border-orange-500/30',
+    bgGradient: 'from-orange-600/20 via-red-500/20 to-orange-800/20'
+  }
+];
+
+const DepartmentCarousel: React.FC = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = React.useState(false);
+
+  // Duplicate departments for seamless infinite loop (need at least 2 sets)
+  const duplicatedDepartments = [...departments, ...departments];
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    const inner = innerRef.current;
+    if (!carousel || !inner) return;
+
+    const cardWidth = 380;
+    const gap = 32;
+    const setWidth = departments.length * (cardWidth + gap);
+
+    let animationId: number;
+    let translateX = 0;
+    const scrollSpeed = 1.5; // Faster scroll speed
+
+    const animate = () => {
+      if (!isPaused) {
+        translateX -= scrollSpeed;
+        
+        // Reset when we've scrolled through one complete set
+        if (Math.abs(translateX) >= setWidth) {
+          translateX = 0;
+        }
+        
+        if (inner) {
+          inner.style.transform = `translateX(${translateX}px)`;
+        }
+      }
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, [isPaused]);
+
+  return (
+    <div 
+      className="relative py-8 overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Gradient overlays for fade effect */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050b14] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050b14] to-transparent z-10 pointer-events-none" />
+      
+      <div
+        ref={carouselRef}
+        className="overflow-x-hidden scrollbar-hide"
+        style={{ 
+          pointerEvents: 'none',
+          userSelect: 'none',
+          touchAction: 'none'
+        }}
+        onWheel={(e) => e.preventDefault()}
+        onTouchMove={(e) => e.preventDefault()}
+      >
+        <div
+          ref={innerRef}
+          className="flex gap-8"
+          style={{ willChange: 'transform', pointerEvents: 'none' }}
+        >
+          {duplicatedDepartments.map((dept, index) => {
+            const IconComponent = dept.icon;
+            // Alternate cards up and down - index 0 down, index 1 up, index 2 down, etc.
+            const isEven = index % 2 === 0;
+            const offsetY = isEven ? 24 : -24; // One card down, one card up - more visible offset
+            
+            // Unique styling for each department
+            const getCardStyle = (deptId: number) => {
+              switch(deptId) {
+                case 1: // WebOps, Coding & Cybersecurity
+                  return {
+                    borderColor: 'border-blue-500/30',
+                    iconBg: 'bg-blue-500/20',
+                    iconBorder: 'border-blue-500/40',
+                    accentColor: 'blue-500',
+                    gradient: 'from-blue-500/10 via-blue-500/5 to-transparent',
+                    iconShape: 'rounded-xl',
+                    glowColor: 'shadow-blue-500/20'
+                  };
+                case 2: // Multimedia
+                  return {
+                    borderColor: 'border-purple-500/30',
+                    iconBg: 'bg-purple-500/20',
+                    iconBorder: 'border-purple-500/40',
+                    accentColor: 'purple-500',
+                    gradient: 'from-purple-500/10 via-purple-500/5 to-transparent',
+                    iconShape: 'rounded-xl',
+                    glowColor: 'shadow-purple-500/20'
+                  };
+                case 3: // PR, Outreach & Sponsorship
+                  return {
+                    borderColor: 'border-green-500/30',
+                    iconBg: 'bg-green-500/20',
+                    iconBorder: 'border-green-500/40',
+                    accentColor: 'green-500',
+                    gradient: 'from-green-500/10 via-green-500/5 to-transparent',
+                    iconShape: 'rounded-xl',
+                    glowColor: 'shadow-green-500/20'
+                  };
+                case 4: // Core
+                  return {
+                    borderColor: 'border-orange-500/30',
+                    iconBg: 'bg-orange-500/20',
+                    iconBorder: 'border-orange-500/40',
+                    accentColor: 'orange-500',
+                    gradient: 'from-orange-500/10 via-orange-500/5 to-transparent',
+                    iconShape: 'rounded-xl',
+                    glowColor: 'shadow-orange-500/20'
+                  };
+                default:
+                  return {
+                    borderColor: 'border-white/10',
+                    iconBg: 'bg-slate-900/50',
+                    iconBorder: 'border-white/10',
+                    accentColor: 'white',
+                    gradient: 'from-transparent to-transparent',
+                    iconShape: 'rounded-xl',
+                    glowColor: 'shadow-white/10'
+                  };
+              }
+            };
+            
+            const cardStyle = getCardStyle(dept.id);
+            
+            return (
+              <div
+                key={`${dept.id}-${index}`}
+                className="flex-shrink-0 w-[380px] group"
+                style={{ transform: `translateY(${offsetY}px)`, pointerEvents: 'auto' }}
+              >
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                  className={`relative h-80 bg-black rounded-2xl border ${cardStyle.borderColor} shadow-2xl p-6 flex flex-col hover:border-opacity-50 transition-all duration-300 overflow-hidden`}
+                  style={{
+                    boxShadow: `0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px ${dept.id === 1 ? 'rgba(59, 130, 246, 0.2)' : dept.id === 2 ? 'rgba(168, 85, 247, 0.2)' : dept.id === 3 ? 'rgba(34, 197, 94, 0.2)' : 'rgba(249, 115, 22, 0.2)'}`
+                  }}
+                >
+                  {/* Subtle gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${cardStyle.gradient} pointer-events-none`} />
+                  
+                  {/* Icon/Logo at top left - unique styling per department */}
+                  <div className="mb-4 relative z-10">
+                    <div className={`w-16 h-16 ${cardStyle.iconShape} ${cardStyle.iconBg} border ${cardStyle.iconBorder} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 mb-3 shadow-lg group-hover:shadow-xl`}>
+                      <IconComponent 
+                        size={32} 
+                        className={`${dept.iconColor} ${dept.iconHoverColor} transition-colors`}
+                      />
+                    </div>
+                    {/* Department Name - same font as "Our Departments" */}
+                    <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-2">
+                      {dept.name}
+                    </h3>
+                    {/* Description as subtitle */}
+                    <p className="text-gray-400 text-sm mb-4">
+                      {dept.description}
+                    </p>
+                  </div>
+                  
+                  {/* Additional content area - matching testimonial text area */}
+                  <div className="flex-1 flex items-start mb-4 relative z-10">
+                    <p className="text-white text-sm leading-relaxed">
+                      Building innovative solutions and driving technical excellence across all domains.
+                    </p>
+                  </div>
+                  
+                  {/* Five green stars at the bottom */}
+                  <div className="flex gap-1 mt-auto relative z-10">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={20}
+                        className="fill-green-500 text-green-500"
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Home: React.FC = () => {
   const recentEvents = EVENTS.slice(0, 4);
@@ -35,12 +281,6 @@ const Home: React.FC = () => {
               >
                 Join the Elite
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/domains"
-                className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-base sm:text-lg hover:bg-white/10 backdrop-blur-md transition-all flex items-center justify-center gap-2 hover:border-orange-500/30"
-              >
-                Explore Domains
               </Link>
             </div>
           </motion.div>
@@ -103,6 +343,25 @@ const Home: React.FC = () => {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Departments Section - Logo Loop */}
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 relative z-10 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-3 sm:mb-4">
+              Our <span className="text-orange-500">Departments</span>
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base">Where expertise meets innovation</p>
+          </motion.div>
+
+          <DepartmentCarousel />
         </div>
       </section>
 

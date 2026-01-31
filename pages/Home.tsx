@@ -58,7 +58,7 @@ const departments = [
 const DepartmentCarousel: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = React.useState(false);
+  //const [isPaused, setIsPaused] = React.useState(false);
 
   // Duplicate departments for seamless infinite loop (need at least 2 sets)
   const duplicatedDepartments = [...departments, ...departments];
@@ -77,38 +77,33 @@ const DepartmentCarousel: React.FC = () => {
     const scrollSpeed = 1.5; // Faster scroll speed
 
     const animate = () => {
-      if (!isPaused) {
-        translateX -= scrollSpeed;
-        
-        // Reset when we've scrolled through one complete set
-        if (Math.abs(translateX) >= setWidth) {
-          translateX = 0;
-        }
-        
-        if (inner) {
-          inner.style.transform = `translateX(${translateX}px)`;
-        }
+      translateX -= scrollSpeed;
+      
+      if (Math.abs(translateX) >= setWidth) {
+        translateX = 0;
+      }
+      
+      if (inner) {
+        inner.style.transform = `translateX(${translateX}px)`;
       }
       animationId = requestAnimationFrame(animate);
     };
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, [isPaused]);
+  }, []);
 
   return (
-    <div 
-      className="relative py-8 overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+      <div 
+        className="relative overflow-hidden py-16"
+      >
       {/* Gradient overlays for fade effect */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050b14] to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050b14] to-transparent z-10 pointer-events-none" />
       
       <div
         ref={carouselRef}
-        className="overflow-x-hidden scrollbar-hide"
+        className="overflow-hidden scrollbar-hide py-48"
         style={{ 
           pointerEvents: 'none',
           userSelect: 'none',

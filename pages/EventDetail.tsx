@@ -26,10 +26,10 @@ const EventDetail: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6">
         <button
           onClick={() => navigate('/events')}
-          className="flex items-center gap-2 text-gray-400 hover:text-orange-500 transition-colors group"
+          className="flex items-center gap-3 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-x-1"
         >
-          <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-          <span>Back to Events</span>
+          <ArrowLeft size={22} />
+          <span className="text-lg">Back to Events</span>
         </button>
       </div>
 
@@ -63,19 +63,18 @@ const EventDetail: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 space-y-16">
         {/* Overview */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-gradient-to-br from-slate-800/50 to-transparent p-6 sm:p-8 rounded-2xl border border-white/10"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <Trophy className="text-orange-500" size={28} />
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">Overview</h2>
+          <div className="flex items-center gap-4 mb-8">
+            <Trophy className="text-orange-500" size={36} />
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">Overview</h2>
           </div>
-          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          <p className="text-gray-300 text-lg sm:text-xl leading-relaxed">
             {event.description}
           </p>
         </motion.section>
@@ -86,10 +85,9 @@ const EventDetail: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-blue-900/20 to-transparent p-6 sm:p-8 rounded-2xl border border-blue-500/20"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-blue-400 mb-4">Activities & Highlights</h2>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-400 mb-8">Activities & Highlights</h2>
+            <p className="text-gray-300 text-lg sm:text-xl leading-relaxed">
               {event.activities}
             </p>
           </motion.section>
@@ -101,10 +99,9 @@ const EventDetail: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-gradient-to-br from-purple-900/20 to-transparent p-6 sm:p-8 rounded-2xl border border-purple-500/20"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-purple-400 mb-4">Key Highlights</h2>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-bold text-purple-400 mb-8">Key Highlights</h2>
+            <p className="text-gray-300 text-lg sm:text-xl leading-relaxed">
               {event.highlights}
             </p>
           </motion.section>
@@ -117,24 +114,23 @@ const EventDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-6 flex items-center gap-3">
-              <Users size={28} />
+            <h2 className="text-3xl sm:text-4xl font-bold text-orange-500 mb-10 flex items-center gap-4">
+              <Users size={36} />
               Distinguished Guests
             </h2>
-            <div className="grid gap-6">
+            <div className="space-y-12">
               {event.guests.map((guest, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}
-                  className="bg-gradient-to-r from-slate-800/70 to-slate-800/30 border border-orange-500/20 rounded-xl p-6 hover:border-orange-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
                 >
-                  <h3 className="font-bold text-white text-xl mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+                  <h3 className="font-bold text-white text-2xl sm:text-3xl mb-4 flex items-center gap-3">
+                    <span className="w-3 h-3 rounded-full bg-orange-500"></span>
                     {guest.name}
                   </h3>
-                  <p className="text-gray-400 text-base leading-relaxed pl-4">
+                  <p className="text-gray-300 text-lg sm:text-xl leading-loose pl-6">
                     {guest.background}
                   </p>
                 </motion.div>
@@ -148,10 +144,9 @@ const EventDetail: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-gradient-to-br from-green-900/20 to-transparent p-6 sm:p-8 rounded-2xl border border-green-500/20"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-green-400 mb-4">Outcome & Impact</h2>
-          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl font-bold text-green-400 mb-8">Outcome & Impact</h2>
+          <p className="text-gray-300 text-lg sm:text-xl leading-relaxed">
             {event.outcome}
           </p>
         </motion.section>

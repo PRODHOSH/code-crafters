@@ -65,12 +65,14 @@ const Navbar: React.FC = () => {
               )}
             </Link>
           ))}
-          <Link
-            to="/join"
-            className="px-4 xl:px-5 py-2 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold text-sm hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all transform hover:-translate-y-0.5"
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSc0Ek_SsHqyMG7YBmPhzqpW-xde76Uga8KdWl8-GE4xGdrClw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 xl:px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-sm hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] transition-all transform hover:-translate-y-1 hover:scale-105 border border-orange-500/30"
           >
             Join Us
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -104,13 +106,15 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/join"
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc0Ek_SsHqyMG7YBmPhzqpW-xde76Uga8KdWl8-GE4xGdrClw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 text-center py-3 rounded-lg bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold hover:shadow-lg transition-all"
+                className="mt-2 text-center py-3 rounded-lg bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold hover:shadow-lg transition-all border border-orange-500/30"
               >
                 Join Us
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

@@ -72,11 +72,35 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
-          <p>&copy; {new Date().getFullYear()} CodeCrafters. All rights reserved.</p>
-          <div className="flex gap-6">
-            <span className="hover:text-gray-400 transition-colors cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-gray-400 transition-colors cursor-pointer">Terms of Service</span>
+        <div className="border-t border-white/10 pt-8 space-y-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+            <p>&copy; {new Date().getFullYear()} CodeCrafters. All rights reserved.</p>
+            <div className="flex gap-6">
+              <span className="hover:text-gray-400 transition-colors cursor-pointer">Privacy Policy</span>
+              <span className="hover:text-gray-400 transition-colors cursor-pointer">Terms of Service</span>
+            </div>
+          </div>
+          <div className="text-center text-xs text-gray-500">
+            <p className="text-gray-400 mb-2">Developers of the Website</p>
+            <div className="flex items-center justify-center gap-4">
+              <a 
+                href="https://prodhosh.netlify.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-orange-500 hover:text-orange-400 transition-colors"
+              >
+                Prodhosh VS
+              </a>
+              <span className="text-gray-600">•</span>
+              <a 
+                href="https://portfolio-git-main-nitesh-sharmas-projects-3b96572d.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-orange-500 hover:text-orange-400 transition-colors"
+              >
+                Nitesh Sharma
+              </a>
+            </div>
           </div>
         </div>
       </div>

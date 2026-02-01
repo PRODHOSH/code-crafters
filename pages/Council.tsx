@@ -1,10 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { COUNCIL } from '../constants';
-import { Linkedin, Github, X, Mail } from 'lucide-react';
+import { Linkedin, Github, X } from 'lucide-react';
+
+const departments = [
+  { id: 'all', name: 'All', color: 'orange' },
+  { id: 'core', name: 'Core', color: 'orange' },
+  { id: 'webops', name: 'WebOps, Coding & Cybersecurity', color: 'blue' },
+  { id: 'multimedia', name: 'Multimedia', color: 'purple' },
+  { id: 'pr', name: 'PR, Outreach & Sponsorship', color: 'green' },
+];
+
+const getDepartment = (role: string): string => {
+  const roleLower = role.toLowerCase();
+  if (roleLower.includes('core')) return 'core';
+  if (roleLower.includes('webops') || roleLower.includes('coding') || roleLower.includes('cyber') || roleLower.includes('cybersecurity')) return 'webops';
+  if (roleLower.includes('multimedia') || roleLower.includes('graphic')) return 'multimedia';
+  if (roleLower.includes('pr') || roleLower.includes('sponsorship') || roleLower.includes('outreach') || roleLower.includes('publicity')) return 'pr';
+  return 'core'; // default
+};
 
 const Council: React.FC = () => {
   const [selectedMember, setSelectedMember] = useState<string | null>(null);
+  const [selectedDept, setSelectedDept] = useState<string>('all');
+
+  const filteredMembers = useMemo(() => {
+    if (selectedDept === 'all') {
+      // Order: Core first, then WebOps (Prodhosh, Nitesh, then others), Multimedia, Outreach
+      const core = COUNCIL.filter(m => getDepartment(m.role) === 'core');
+      const webops = COUNCIL.filter(m => getDepartment(m.role) === 'webops');
+      const multimedia = COUNCIL.filter(m => getDepartment(m.role) === 'multimedia');
+      const pr = COUNCIL.filter(m => getDepartment(m.role) === 'pr');
+      
+      // Sort WebOps: Prodhosh first, Nitesh second, then others
+      const prodhosh = webops.find(m => m.name.toLowerCase().includes('prodhosh'));
+      const nitesh = webops.find(m => m.name.toLowerCase().includes('nitesh'));
+      const otherWebops = webops.filter(m => 
+        !m.name.toLowerCase().includes('prodhosh') && 
+        !m.name.toLowerCase().includes('nitesh')
+      );
+      
+      const sortedWebops = [
+        ...(prodhosh ? [prodhosh] : []),
+        ...(nitesh ? [nitesh] : []),
+        ...otherWebops
+      ];
+      
+      return [...core, ...sortedWebops, ...multimedia, ...pr];
+    }
+    return COUNCIL.filter(member => getDepartment(member.role) === selectedDept);
+  }, [selectedDept]);
 
   return (
     <div className="pt-20 sm:pt-24 min-h-screen px-4 sm:px-6 pb-16 sm:pb-20">
@@ -12,22 +57,68 @@ const Council: React.FC = () => {
          <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">The <span className="text-orange-500">Syndicate</span></h1>
           <p className="text-gray-400">Architects of the CodeCrafters vision.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {COUNCIL.map((member, index) => (
-             <motion.div
-               key={member.id}
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ delay: index * 0.05 }}
-               onClick={() => setSelectedMember(member.id)}
-               className="group relative bg-slate-900 border border-white/5 rounded-xl overflow-hidden cursor-pointer hover:border-orange-500/50 transition-all duration-300"
-             >
+        {/* Department Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {departments.map((dept) => {
+            const isActive = selectedDept === dept.id;
+            const getActiveStyles = () => {
+              switch(dept.color) {
+                case 'orange': return 'bg-orange-500 text-white shadow-lg shadow-orange-500/30';
+                case 'blue': return 'bg-blue-500 text-white shadow-lg shadow-blue-500/30';
+                case 'purple': return 'bg-purple-500 text-white shadow-lg shadow-purple-500/30';
+                case 'green': return 'bg-green-500 text-white shadow-lg shadow-green-500/30';
+                default: return 'bg-orange-500 text-white shadow-lg shadow-orange-500/30';
+              }
+            };
+            
+            return (
+              <motion.button
+                key={dept.id}
+                onClick={() => setSelectedDept(dept.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 ${
+                  isActive
+                    ? getActiveStyles()
+                    : 'bg-slate-800/50 text-gray-300 border border-white/10 hover:border-white/20'
+                }`}
+              >
+                {dept.name}
+              </motion.button>
+            );
+          })}
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedDept}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {filteredMembers.map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                onClick={() => setSelectedMember(member.id)}
+                className="group relative bg-gradient-to-br from-slate-900/90 to-slate-800/90 border border-white/10 rounded-xl overflow-hidden cursor-pointer hover:border-orange-500/50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
                 {/* Image Area */}
                 <div className="aspect-[3/4] overflow-hidden relative">
                    <img src={member.photo} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
@@ -46,9 +137,10 @@ const Council: React.FC = () => {
                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">{member.name}</h3>
                    <p className="text-xs text-gray-400 font-mono uppercase tracking-wider">{member.role}</p>
                 </div>
-             </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         <AnimatePresence>
            {selectedMember && (

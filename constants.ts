@@ -198,7 +198,7 @@ export const EVENTS: Event[] = [
     title: 'GitHub Masterclass Session',
     date: 'April 6, 2025',
     description: 'Hands-on session covering Git basics, version control, and open-source collaboration.',
-    image: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=600&fit=crop',
+    image: '/events/github.png',
     activities: 'Cheat sheets, reference materials, and live demos were shared with participants.',
     outcome: 'Increased proficiency in version control tools and confidence in contributing to collaborative coding projects.',
   },
@@ -207,7 +207,7 @@ export const EVENTS: Event[] = [
     title: 'Guest Speaker Session - Introduction to Data Analytics',
     date: 'January 19, 2025',
     description: 'Comprehensive introduction to data analytics with industry expert.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    image: '/events/data.png',
     guests: [
       {
         name: 'Ms. Shakra Shamim',
@@ -222,7 +222,7 @@ export const EVENTS: Event[] = [
     title: 'DSATHON – by Codecrafters x Corbett',
     date: 'November 7 - December 3, 2024',
     description: 'Collaborative event focused on data structures, algorithms, and real-world problem-solving.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
+    image: '/events/dsa.png',
     highlights: 'Comprehensive DSA competition fostering algorithmic thinking and problem-solving skills.',
     outcome: 'Successfully enhanced participants\' understanding of data structures and algorithms through practical challenges.',
   },
@@ -231,7 +231,7 @@ export const EVENTS: Event[] = [
     title: 'Guest Speaker Session - Bridging the Gap Between Academics and Industry (AI/ML)',
     date: 'September 29, 2024',
     description: 'Industry expert session on bridging academics and AI/ML industry practices.',
-    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop',
+    image: '/events/aiml.png',
     guests: [
       {
         name: 'Mr. Atul Yadav',
@@ -246,7 +246,7 @@ export const EVENTS: Event[] = [
     title: 'Google Gen AI Hackathon – Team Building & Mentorship',
     date: 'September 5-10, 2024',
     description: 'Participants were carefully selected based on their interest and enthusiasm for generative AI.',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
     activities: 'Team formation exercises, guided mentorship on GenAI use cases, and ideation sessions to shape project ideas.',
     outcome: 'Participants received continuous guidance throughout the hackathon, gaining hands-on exposure to generative AI tools and concepts. The initiative fostered collaborative learning and practical application of AI in real-world scenarios.',
   },

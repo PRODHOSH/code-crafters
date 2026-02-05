@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { COUNCIL } from '../constants';
-import { Linkedin, Github, X } from 'lucide-react';
+import { Linkedin, Github, X, Instagram } from 'lucide-react';
 
 const departments = [
   { id: 'all', name: 'All', color: 'orange' },
@@ -126,8 +126,21 @@ const Council: React.FC = () => {
                    
                    {/* Social Overlay */}
                    <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
-                      <div className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:text-orange-500 transition-colors"><Linkedin size={16} /></div>
-                      <div className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:text-orange-500 transition-colors"><Github size={16} /></div>
+                      {member.linkedin && (
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:text-orange-500 transition-colors">
+                          <Linkedin size={16} />
+                        </a>
+                      )}
+                      {member.github && (
+                        <a href={member.github} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:text-orange-500 transition-colors">
+                          <Github size={16} />
+                        </a>
+                      )}
+                      {member.instagram && (
+                        <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:text-orange-500 transition-colors">
+                          <Instagram size={16} />
+                        </a>
+                      )}
                    </div>
                 </div>
 
@@ -188,13 +201,18 @@ const Council: React.FC = () => {
 
                               <div className="flex justify-center gap-4 w-full">
                                  {member.linkedin && (
-                                   <a href={member.linkedin} className="flex-1 py-3 rounded-xl bg-white/5 border border-white/5 hover:bg-[#0077b5] hover:text-white hover:border-transparent transition-all flex items-center justify-center gap-2 group">
-                                      <Linkedin size={20} /> <span className="text-sm font-bold">Connect</span>
+                                   <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/5 hover:bg-[#0077b5] hover:text-white hover:border-transparent transition-all flex items-center justify-center gap-2 group">
+                                      <Linkedin size={20} /> <span className="text-sm font-bold">LinkedIn</span>
                                    </a>
                                  )}
                                  {member.github && (
-                                   <a href={member.github} className="flex-1 py-3 rounded-xl bg-white/5 border border-white/5 hover:bg-[#333] hover:text-white hover:border-transparent transition-all flex items-center justify-center gap-2 group">
-                                      <Github size={20} /> <span className="text-sm font-bold">Code</span>
+                                   <a href={member.github} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/5 hover:bg-[#333] hover:text-white hover:border-transparent transition-all flex items-center justify-center gap-2 group">
+                                      <Github size={20} /> <span className="text-sm font-bold">GitHub</span>
+                                   </a>
+                                 )}
+                                 {member.instagram && (
+                                   <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/5 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:border-transparent transition-all flex items-center justify-center gap-2 group">
+                                      <Instagram size={20} /> <span className="text-sm font-bold">Instagram</span>
                                    </a>
                                  )}
                               </div>

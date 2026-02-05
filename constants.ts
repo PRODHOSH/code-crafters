@@ -51,7 +51,7 @@ export const EVENTS: Event[] = [
     title: 'Interhouse Tech Dominion',
     date: 'January 2026',
     description: 'Flagship inter-house technical hackathon designed to assess logical reasoning, coding proficiency, teamwork, and innovation.',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop',
+    image: '/events/techdominion.jpeg',
     activities: 'Structured three-round competitive format: expert-led orientation session, elimination round, proctored core coding round, and live grand finale featuring team pitches and judge interaction.',
     guests: [
       {
@@ -74,7 +74,7 @@ export const EVENTS: Event[] = [
     title: 'CyberCTF (Margazhi)',
     date: 'December 2025',
     description: 'Four-day solo cybersecurity competition featuring hands-on workshop and two 24-hour CTF rounds.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
+    image: '/events/cyber.jpeg',
     registrations: '550+',
     activities: 'Workshop led by industry expert introducing core cybersecurity concepts and CTF methodologies. Competition progressed from beginner-to-intermediate challenges to Hard and Insane difficulty levels across Web Security, OSINT, and Cryptography.',
     guests: [
@@ -91,7 +91,7 @@ export const EVENTS: Event[] = [
     title: 'DSATHON 2.0',
     date: 'November 2, 2025',
     description: 'Fast-paced competitive programming event designed to test participants\' problem-solving skills and core understanding of Data Structures and Algorithms.',
-    image: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?w=800&h=600&fit=crop',
+    image: '/events/dsa2.jpeg',
     activities: 'Conducted on GeeksforGeeks. 90-minute contest emphasizing pure logic and time efficiency, with no external assistance.',
     outcome: 'Enthusiastic participation from IITM BS learners, fostering a high-energy competitive environment and reinforcing strong DSA fundamentals through leaderboard-based evaluation.',
   },
@@ -100,7 +100,7 @@ export const EVENTS: Event[] = [
     title: 'AI Genesis (With Nilgiri, Nallamala and Sunderbans houses)',
     date: 'September 19-21, 2025',
     description: 'Three-day Agentic AI learning series introducing participants to the fundamentals of AI agents, hands-on agentic framework development, and career pathways in Agentic AI.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
+    image: '/events/aigenesis.png',
     activities: 'Designed for learners ranging from beginners to advanced levels, fostering technical curiosity, practical understanding, and future-ready thinking.',
     guests: [
       {
@@ -124,7 +124,7 @@ export const EVENTS: Event[] = [
     title: 'Algowars (Saavan)',
     date: 'September 19-21, 2025',
     description: 'Competitive programming event designed to test participants\' proficiency in Data Structures and Algorithms through a two-round format.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
+    image: '/events/algowars.jpeg',
     registrations: '648 (highest for any technical event in Saavan\'25)',
     activities: 'Hosted on HackerRank with automated judging and strict online proctoring.',
     outcome: 'Successfully fostered a strong competitive coding culture and witnessed enthusiastic participation from the student community.',
@@ -134,7 +134,7 @@ export const EVENTS: Event[] = [
     title: 'Codeveda (with club Garuda, Manipal University, Jaipur)',
     date: 'July 25-27, 2025',
     description: 'CODEVEDA\'25 – Code for Dharma, Build for Impact. A national-level online hackathon blending Vedic wisdom with modern technological innovation.',
-    image: 'https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&h=600&fit=crop',
+    image: '/events/codeveda.jpeg',
     activities: 'Three-day hackathon featuring a structured three-round format, guiding participants from ideation to real-time prototyping.',
     guests: [
       {
@@ -157,7 +157,7 @@ export const EVENTS: Event[] = [
     title: 'CyberSprint (In collaboration with Nilgiri and Kanha houses)',
     date: 'June 20-30, 2025',
     description: 'Comprehensive 10-day cybersecurity learning series covering core cybersecurity concepts, ethical hacking, secure AI systems, web vulnerabilities, and CTF training.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop',
+    image: '/events/cybersprint.jpeg',
     registrations: '1100+',
     activities: 'Five carefully curated sessions featuring real-world tools and techniques such as OSINT, Burp Suite, SQL Injection, and XSS.',
     guests: [
@@ -182,7 +182,7 @@ export const EVENTS: Event[] = [
     title: 'Inter House Codewars',
     date: 'May 2-10, 2025',
     description: 'The first-ever competitive coding event among the 12 houses of the IITM BS program.',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
+    image: '/events/codewars.jpeg',
     registrations: '400+',
     guests: [
       {
@@ -253,26 +253,26 @@ export const EVENTS: Event[] = [
 ];
 
 export const COUNCIL: CouncilMember[] = [
-  { id: '1', name: 'Harshit Jain', role: 'Core Team', photo: '/council/harshit.jpg', bio: 'Core team member', linkedin: '#' },
-  { id: '2', name: 'Prayesh Bhagswati', role: 'Multimedia', photo: '/council/prayash.jpg', bio: 'Multimedia specialist', linkedin: '#' },
-  { id: '3', name: 'Shouvik Datta', role: 'PR & Sponsorship', photo: '/council/shouvik.jpg', bio: 'PR and Sponsorship lead', linkedin: '#' },
-  { id: '4', name: 'Brahmi Paliwal', role: 'Pr and Sponsorship', photo: '/council/brahmi.jpg', bio: 'PR and Sponsorship', linkedin: '#' },
-  { id: '5', name: 'Atharv Sanjeev Kumar', role: 'Cybersecurity and WebOPS', photo: '/council/atharv.jpg', bio: 'Cybersecurity and WebOPS expert', linkedin: '#' },
+  { id: '1', name: 'Shramadeep', role: 'Core/Secretary', photo: '/council/shramadeep.jpeg', bio: 'Core team - Secretary', linkedin: 'https://www.linkedin.com/in/shramadeepd' },
+  { id: '20', name: 'Tania Saha', role: 'Core/Deputy Secretary', photo: '/council/tania.jpeg', bio: 'Core team - Deputy Secretary', linkedin: 'https://www.linkedin.com/in/tania-saha-47718a349' },
   { id: '6', name: 'Radhika Kumari', role: 'Core', photo: '/council/radhika.jpg', bio: 'Core team member', linkedin: '#' },
-  { id: '7', name: 'Yash Pakhale', role: 'PR, Outreach and Sponsorship', photo: '/council/yash.jpeg', bio: 'PR, Outreach and Sponsorship', linkedin: '#' },
-  { id: '8', name: 'Harsh Khandal', role: 'Webops, Coding and Cybersecurity (Cybersecurity)', photo: '/council/harsh.jpg', bio: 'Webops, Coding and Cybersecurity', linkedin: '#' },
-  { id: '9', name: 'Atul Mishra', role: 'Webops', photo: '/council/atul.jpg', bio: 'Webops specialist', linkedin: '#' },
-  { id: '10', name: 'Kartik Chilkoti', role: 'Webops', photo: '/council/kartik.jpg', bio: 'Webops developer', linkedin: '#' },
+  { id: '2', name: 'Prayesh Bhagswati', role: 'Multimedia', photo: '/council/prayash.jpg', bio: 'Multimedia specialist', linkedin: 'https://www.linkedin.com/in/prayash-bhagawati' },
+  { id: '3', name: 'Shouvik Datta', role: 'PR, Outreach & Sponsorship', photo: '/council/shouvik.jpg', bio: 'PR, Outreach and Sponsorship lead', linkedin: 'https://www.linkedin.com/in/shouvik-datta-88201827a' },
+  { id: '4', name: 'Brahmi Paliwal', role: 'PR, Outreach & Sponsorship', photo: '/council/brahmi.jpg', bio: 'PR, Outreach and Sponsorship', linkedin: 'https://www.linkedin.com/in/brahmi-paliwal-08aa83379' },
+  { id: '5', name: 'Atharv Sanjeev Kumar', role: 'WebOps, Coding & Cybersecurity', photo: '/council/atharv.jpg', bio: 'WebOps, Coding and Cybersecurity expert', linkedin: 'https://www.linkedin.com/in/atharv-sanjeev-kumar' },
+  { id: '7', name: 'Yash Pakhale', role: 'PR, Outreach & Sponsorship', photo: '/council/yash.jpeg', bio: 'PR, Outreach and Sponsorship', linkedin: '#' },
+  { id: '8', name: 'Harsh Khandal', role: 'Cybersecurity', photo: '/council/harsh.jpg', bio: 'Cybersecurity specialist', linkedin: '#' },
+  { id: '9', name: 'Atul Mishra', role: 'WebOps', photo: '/council/atul.jpg', bio: 'WebOps specialist', linkedin: '#' },
+  { id: '10', name: 'Kartik Chilkoti', role: 'WebOps', photo: '/council/kartik.jpg', bio: 'WebOps developer', linkedin: '#' },
   { id: '11', name: 'Madhav Rimal', role: 'Multimedia', photo: '/council/madhav.jpg', bio: 'Multimedia creator', linkedin: '#' },
-  { id: '12', name: 'Prodhosh V S', role: 'Council - Webops, Coding & Cybersecurity', photo: '/council/prodhosh.jpeg', bio: 'Council member - Webops, Coding & Cybersecurity', linkedin: '#' },
-  { id: '13', name: 'NISHANT KUMAR VERMA', role: 'WebOps, Coding & Cybersecurity', photo: '/council/nishant.jpg', bio: 'WebOps, Coding & Cybersecurity', linkedin: '#' },
-  { id: '14', name: 'AARYA', role: 'Graphic Design', photo: '/council/aarya.JPG', bio: 'Graphic Designer', linkedin: '#' },
-  { id: '15', name: 'Nitesh Sharma', role: 'WEBOPS, CODING&CYBER SECURITY', photo: '/council/nitesh.jpg', bio: 'Webops, Coding and Cybersecurity', linkedin: '#' },
-  { id: '16', name: 'Swapnil Acharya', role: 'Sponsorship and publicity', photo: '/council/swapnil.jpg', bio: 'Sponsorship and publicity lead', linkedin: '#' },
-  { id: '17', name: 'Kumuda Sri P', role: 'PR, OUTREACH & SPONSORSHIP', photo: '/council/kumuda.jpg', bio: 'PR, Outreach & Sponsorship', linkedin: '#' },
-  { id: '18', name: 'Pritam Biswakrma', role: 'Multimedia', photo: '/council/pritam.jpeg', bio: 'Multimedia specialist', linkedin: '#' },
-  { id: '19', name: 'Sarthak Jalota', role: 'PR & Outreach', photo: '/council/sarthak.jpg', bio: 'PR & Outreach', linkedin: '#' },
-  { id: '20', name: 'Tania Saha', role: 'Core/Deputy Secretary', photo: '/council/tania.jpeg', bio: 'Core team - Deputy Secretary', linkedin: '#' },
+  { id: '12', name: 'Prodhosh V S', role: 'WebOps, Coding & Cybersecurity', photo: '/council/prodhosh.jpeg', bio: 'WebOps, Coding and Cybersecurity', linkedin: 'https://www.linkedin.com/in/prodhoshvs', github: 'https://github.com/PRODHOSH', instagram: 'https://www.instagram.com/itzprodhosh/' },
+  { id: '13', name: 'NISHANT KUMAR VERMA', role: 'Coding', photo: '/council/nishant.jpg', bio: 'Coding specialist', linkedin: '#' },
+  { id: '14', name: 'AARYA', role: 'Multimedia', photo: '/council/aarya.JPG', bio: 'Graphic Designer', linkedin: 'https://www.linkedin.com/in/aarya-jain-69460b336/' },
+  { id: '15', name: 'Nitesh Sharma', role: 'WebOps, Coding & Cybersecurity', photo: '/council/nitesh.jpg', bio: 'WebOps, Coding and Cybersecurity', linkedin: 'https://www.linkedin.com/in/nitesh-sharma-5b4115306' },
+  { id: '16', name: 'Swapnil Acharya', role: 'PR, Outreach & Sponsorship', photo: '/council/swapnil.jpg', bio: 'PR, Outreach and Sponsorship lead', linkedin: 'https://www.linkedin.com/in/swapnil-acharya-298018343' },
+  { id: '17', name: 'Kumuda Sri P', role: 'PR, Outreach & Sponsorship', photo: '/council/kumuda.jpg', bio: 'PR, Outreach and Sponsorship', linkedin: 'https://www.linkedin.com/in/kumudasrip06' },
+  { id: '18', name: 'Pritam Biswakrma', role: 'Multimedia', photo: '/council/pritam.jpeg', bio: 'Multimedia specialist', linkedin: 'https://www.linkedin.com/in/pritam-biswakarma-a17498264' },
+  { id: '19', name: 'Sarthak Jalota', role: 'PR, Outreach & Sponsorship', photo: '/council/sarthak.jpg', bio: 'PR, Outreach and Sponsorship', linkedin: '#' },
 ];
 
 export const STATS: Stat[] = [

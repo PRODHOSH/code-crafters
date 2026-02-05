@@ -31,6 +31,7 @@ export interface CouncilMember {
   bio: string;
   linkedin?: string;
   github?: string;
+  instagram?: string;
 }
 
 export interface Stat {

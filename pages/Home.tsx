@@ -287,7 +287,7 @@ const Home: React.FC = () => {
   // Filter only Core members
   const coreCouncil = COUNCIL.filter(member => 
     member.role.toLowerCase().includes('core')
-  ).slice(0, 4);
+  ).slice(0, 3);
   const [expandedFAQ, setExpandedFAQ] = React.useState<number | null>(null);
 
   return (
@@ -573,7 +573,7 @@ const Home: React.FC = () => {
                <p className="text-gray-400 text-sm sm:text-base">The visionaries leading the charge.</p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center max-w-5xl mx-auto">
                {coreCouncil.map((member, idx) => (
                   <motion.div
                      key={member.id}
@@ -591,8 +591,11 @@ const Home: React.FC = () => {
                         <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
                         <p className="text-orange-500 font-medium text-sm mb-4">{member.role}</p>
                         <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
-                           <a href="#" className="text-gray-400 hover:text-white"><Linkedin size={18} /></a>
-                           <a href="#" className="text-gray-400 hover:text-white"><Github size={18} /></a>
+                           {member.linkedin && (
+                              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+                                 <Linkedin size={18} />
+                              </a>
+                           )}
                         </div>
                      </div>
                   </motion.div>

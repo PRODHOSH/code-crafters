@@ -29,11 +29,11 @@ const EventModal: React.FC<{ event: Event; onClose: () => void }> = ({ event, on
         </button>
 
         {/* Image on Left */}
-        <div className="w-full md:w-1/2 h-64 md:h-full relative overflow-hidden">
+        <div className="w-full md:w-1/2 h-64 md:h-full relative overflow-hidden bg-slate-950">
           <img 
             src={event.image} 
             alt={event.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -218,16 +218,13 @@ const Events: React.FC = () => {
               className="cursor-pointer group relative bg-gradient-to-br from-slate-900/90 to-slate-800/90 border border-white/10 hover:border-orange-500/50 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 h-full backdrop-blur-sm"
             >
               {/* Image with overlay */}
-              <div className="h-56 sm:h-64 overflow-hidden relative">
-                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10" />
+              <div className="h-80 sm:h-96 overflow-hidden relative bg-slate-950">
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-10" />
                  <img 
                   src={event.image} 
                   alt={event.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-orange-500/30 text-xs font-bold text-orange-400 shadow-lg">
-                    {event.registrations ? `${event.registrations} REG` : 'COMPLETED'}
-                </div>
                 <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-xs font-medium text-white">
                     <Calendar size={14} /> {event.date}
                 </div>

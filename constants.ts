@@ -72,7 +72,7 @@ export const EVENTS: Event[] = [
   {
     id: '12',
     title: 'CyberCTF (Margazhi)',
-    date: 'December 2025',
+    date: 'January 2026',
     description: 'Four-day solo cybersecurity competition featuring hands-on workshop and two 24-hour CTF rounds.',
     image: '/events/cyber.jpeg',
     registrations: '550+',

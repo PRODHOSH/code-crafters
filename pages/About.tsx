@@ -208,12 +208,10 @@ const About: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-20"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-20 max-w-2xl mx-auto"
         >
           {[
-            { value: '500+', label: 'Active Members', icon: Users },
-            { value: '45+', label: 'Projects Shipped', icon: Code },
-            { value: '20+', label: 'Events Annually', icon: Calendar },
+            { value: '3000+', label: 'Active Members', icon: Users },
             { value: '24/7', label: 'Community Support', icon: Heart }
           ].map((stat, index) => (
             <motion.div
